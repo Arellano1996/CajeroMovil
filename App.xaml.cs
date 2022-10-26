@@ -1,4 +1,6 @@
-﻿namespace CajeroMovil;
+﻿using CajeroMovil.MVVM.Views;
+
+namespace CajeroMovil;
 
 public partial class App : Application
 {
@@ -6,6 +8,7 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
-	}
+        MainPage = new itemsList();
+        //MainPage = new AppShell();
+    }
 }

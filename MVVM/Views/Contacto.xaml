@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CajeroMovil.MVVM.Views.Contacto"
+             Title="Contacto">
+    <Grid RowDefinitions="200, auto, auto, *, auto">
+        <Frame BorderColor="Black"  
+               WidthRequest="150" 
+               HeightRequest="150" 
+               CornerRadius="100" 
+               Grid.Row="0">
+            <Image 
+                WidthRequest="100" 
+                HeightRequest="100" 
+                Source="https://img.icons8.com/external-creatype-filed-outline-colourcreatype/128/000000/external-market-e-commerce-creatype-filed-outline-colourcreatype.png"/>
+        </Frame>
+        <Label  
+            Grid.Row="1" 
+            Text="Nombre de Tienda" 
+            FontSize="28" 
+            HorizontalTextAlignment="Center"/>
+        <Label 
+            Grid.Row="2" 
+            Text="Ubicación" 
+            FontSize="18" 
+            HorizontalTextAlignment="Center" />
+        <Grid 
+            Grid.Row="4" 
+            ColumnDefinitions="auto, *">
+            <Button 
+                Grid.Column="1" 
+                HeightRequest="60" 
+                Margin="10" 
+                Padding="0" 
+                Text="Enviar Mensaje" 
+                BorderWidth="2" />
+            <StackLayout 
+                Grid.Column="0" 
+                Grid.ColumnSpan="2" 
+                Margin="10" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Start">
+                <Image  
+                    WidthRequest="30" 
+                    Margin="20, 0, 0, 0" 
+                    Source="https://img.icons8.com/pastel-glyph/128/FFFFFF/whatsapp--v2.png"/>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>
