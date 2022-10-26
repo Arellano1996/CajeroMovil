@@ -14,13 +14,30 @@
             ItemTemplate="{StaticResource ItemStyle}" 
            >
             <CollectionView.Header>
-                <Label 
-                    Text="Carrito"
-                    FontSize="Large"
-                    FontAttributes="Bold"
-                    Margin="15, 50, 10, 30"
-                    Grid.Row="0"
-                    />
+                <HorizontalStackLayout>
+                    <Label 
+                        Text="Carrito"
+                        FontSize="Large"
+                        FontAttributes="Bold"
+                        Margin="15, 50, 10, 30"
+                        Grid.Row="0"
+                        VerticalOptions="Center"
+                        />
+                    <VerticalStackLayout>
+                        <ImageButton
+                            Source="camara_qr.png"
+                            HorizontalOptions="End"
+                            HeightRequest="76"
+                            Command="{Binding ToQRCommand}"
+                            />
+                        <Label 
+                            Text="Escanear"
+                            FontSize="Small"
+                            HorizontalOptions="Center"
+                            />
+                    </VerticalStackLayout>
+                    
+                </HorizontalStackLayout>
             </CollectionView.Header>
             <CollectionView.EmptyView>
                 <VerticalStackLayout 

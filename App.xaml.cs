@@ -8,7 +8,7 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-        MainPage = new itemsList();
-        //MainPage = new AppShell();
+        //MainPage = new QRScan();
+        MainPage = new AppShell();
     }
 }

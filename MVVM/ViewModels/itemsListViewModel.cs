@@ -1,6 +1,7 @@
 ﻿
 
 using CajeroMovil.MVVM.Models;
+using CajeroMovil.MVVM.Views;
 using PropertyChanged;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -8,7 +9,7 @@ using System.Windows.Input;
 namespace CajeroMovil.MVVM.ViewModels
 {
     [AddINotifyPropertyChangedInterface]
-    public class itemsListViewModel
+    public class itemsListViewModel : ContentPage
     {
 
         //public Item Item { get; set; }
@@ -31,6 +32,12 @@ namespace CajeroMovil.MVVM.ViewModels
                 {
                     Items = new ObservableCollection<Item>();
                 }else Items.Remove((Item)p);
+            });
+        public ICommand ToQRCommand =>
+            new Command(() => 
+            {
+                App.Current.MainPage.DisplayAlert("Titulo", "message", "Ok");
+                Navigation.PushAsync(new QRScan());
             });
 
         private void Alert() 
