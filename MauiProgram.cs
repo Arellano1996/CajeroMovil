@@ -24,6 +24,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<itemsList>();
         builder.Services.AddTransient<QRScan>();
         builder.Services.AddTransient<Contacto>();
+        builder.Services.AddTransient<Pagar>();
 
 
         return builder.Build();

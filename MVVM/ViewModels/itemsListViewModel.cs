@@ -4,6 +4,7 @@ using CajeroMovil.MVVM.Models;
 using CajeroMovil.MVVM.Views;
 using PropertyChanged;
 using System.Collections.ObjectModel;
+using System.Text.Json;
 using System.Windows.Input;
 
 namespace CajeroMovil.MVVM.ViewModels
@@ -18,6 +19,7 @@ namespace CajeroMovil.MVVM.ViewModels
         public ItemsListViewModel() 
         {
             Items = new ObservableCollection<Item>();
+            h = "";
         }
 
         public ICommand ClickCommand =>
@@ -38,9 +40,12 @@ namespace CajeroMovil.MVVM.ViewModels
                 await AppShell.Current.GoToAsync(nameof(QRScan));
             });
 
-        public void Alert() 
+        public string h { get; set; }
+        async public void Alert() 
         {
-            Items.Add(new Item { id = 3, name = "Item agregado", price = 500, description = "hola", linkImg = "dotnet_bot.svg" });
+            //Items.Add(new Item { id = 3, name = "Item agregado", price = 500, description = "hola", linkImg = "dotnet_bot.svg" });
+            await AppShell.Current.GoToAsync(nameof(Pagar));
+
         }
 
         public void AddItem(Item i)
@@ -55,6 +60,17 @@ namespace CajeroMovil.MVVM.ViewModels
             });
         }
 
+        public string GetItemsToQR() 
+        {
+            List<Item> items = new List<Item>();    
+            foreach (var item in Items) 
+            {
+                items.Add(item);
+            }
+            //return items;
+            return JsonSerializer.Serialize(items);
+            //h = JsonSerializer.Serialize(items).ToString();
+        }
 
     }
 }
