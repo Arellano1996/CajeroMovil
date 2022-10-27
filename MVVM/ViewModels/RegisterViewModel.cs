@@ -54,6 +54,10 @@ namespace CajeroMovil.MVVM.ViewModels
                 {
                     await App.Current.MainPage.DisplayAlert("Alerta", "La contraseña debe tener minimo 6 caracteres", "OK");
                 }
+                else if (ex.Message.Contains("MissingPassword"))
+                {
+                    await App.Current.MainPage.DisplayAlert("Alerta", "Ingrese su contraseña", "OK");
+                }
                 else
                 {
                     await App.Current.MainPage.DisplayAlert("Alerta", ex.Message, "OK");

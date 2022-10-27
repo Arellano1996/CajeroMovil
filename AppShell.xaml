@@ -6,14 +6,13 @@
     xmlns:local="clr-namespace:CajeroMovil.MVVM.Views"
     Shell.FlyoutBehavior="Disabled"
     >
-    <!-- 
+
     <ShellContent
-        Title="Cajero Movil"
-        ContentTemplate="{DataTemplate local:itemsList}"
-        Route="MainPage" />
-    </Shell>
-    -->
-    <TabBar>
+        Title="Login"
+        ContentTemplate="{DataTemplate local:Login}"
+        Route="LoginPage" />
+
+    <TabBar Route="MainMenu">
         <Tab Title="Lista">
             <ShellContent ContentTemplate="{DataTemplate local:itemsList}" />
         </Tab>

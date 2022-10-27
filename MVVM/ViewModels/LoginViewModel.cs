@@ -43,7 +43,7 @@ namespace CajeroMovil.MVVM.ViewModels
                 var content = await auth.GetFreshAuthAsync();
                 var serializedContent = JsonConvert.SerializeObject(content);
                 Preferences.Set("FreshFirebaseToken", serializedContent);
-                await Shell.Current.GoToAsync("////mainMenu", true);
+                await Shell.Current.GoToAsync("////MainMenu", true);
             }
             catch (Exception ex)
             {
