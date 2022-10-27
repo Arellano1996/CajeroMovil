@@ -1,9 +1,12 @@
+using CajeroMovil.MVVM.ViewModels;
+
 namespace CajeroMovil.MVVM.Views;
 
 public partial class Contacto : ContentPage
 {
-	public Contacto()
+	public Contacto(ContactoViewModel vm)
 	{
 		InitializeComponent();
+		BindingContext = vm;
 	}
 }

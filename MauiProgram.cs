@@ -19,9 +19,11 @@ public static class MauiProgram
 			});
 
 		builder.Services.AddSingleton<ItemsListViewModel>();
+        builder.Services.AddTransient<ContactoViewModel>();
 
         builder.Services.AddSingleton<itemsList>();
         builder.Services.AddTransient<QRScan>();
+        builder.Services.AddTransient<Contacto>();
 
 
         return builder.Build();

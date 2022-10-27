@@ -4,11 +4,11 @@
              x:Class="CajeroMovil.MVVM.Views.Contacto"
              Title="Contacto">
     <Grid RowDefinitions="200, auto, auto, *, auto">
-        <Frame BorderColor="Black"  
-               WidthRequest="150" 
-               HeightRequest="150" 
-               CornerRadius="100" 
-               Grid.Row="0">
+        <Frame  
+            WidthRequest="150" 
+            HeightRequest="150" 
+            CornerRadius="100" 
+            Grid.Row="0">
             <Image 
                 WidthRequest="100" 
                 HeightRequest="100" 
@@ -32,8 +32,9 @@
                 HeightRequest="60" 
                 Margin="10" 
                 Padding="0" 
-                Text="Enviar Mensaje" 
-                BorderWidth="2" />
+                Text="Enviar Mensaje"
+                Command="{Binding ContactoLaunchWhatsAppCommand}"
+                />
             <StackLayout 
                 Grid.Column="0" 
                 Grid.ColumnSpan="2" 
