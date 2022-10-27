@@ -4,18 +4,19 @@ using CajeroMovil.MVVM.Models;
 using CajeroMovil.MVVM.Views;
 using PropertyChanged;
 using System.Collections.ObjectModel;
+using System.Text.Json;
 using System.Windows.Input;
 
 namespace CajeroMovil.MVVM.ViewModels
 {
     [AddINotifyPropertyChangedInterface]
-    public class itemsListViewModel : ContentPage
+    public class ItemsListViewModel
     {
 
         //public Item Item { get; set; }
         public ObservableCollection<Item> Items { get; set; }
         //Constructor
-        public itemsListViewModel() 
+        public ItemsListViewModel() 
         {
             Items = new ObservableCollection<Item>();
 
@@ -27,24 +28,33 @@ namespace CajeroMovil.MVVM.ViewModels
         public ICommand DeleteCommand =>
             new Command( (p) => 
             {
-
+                //App.Current.MainPage.DisplayAlert("Titulo", "message", "Ok");
                 if (Items.Count == 1)
                 {
                     Items = new ObservableCollection<Item>();
                 }else Items.Remove((Item)p);
             });
         public ICommand ToQRCommand =>
-            new Command(() => 
+            new Command(async () => 
             {
-                App.Current.MainPage.DisplayAlert("Titulo", "message", "Ok");
-                Navigation.PushAsync(new QRScan());
+                await AppShell.Current.GoToAsync(nameof(QRScan));
             });
 
-        private void Alert() 
+        public void Alert() 
         {
-            
             Items.Add(new Item { id = 3, name = "Item agregado", price = 500, description = "hola", linkImg = "dotnet_bot.svg" });
-            //App.Current.MainPage.DisplayAlert("Titulo", "message", "Ok");
+        }
+
+        public void AddItem(Item i)
+        {
+            Items.Add(new Item 
+            { 
+                id = i.id, 
+                name = i.name, 
+                description = i.description, 
+                linkImg = i.linkImg, 
+                price = i.price 
+            });
         }
 
 

@@ -10,7 +10,7 @@
 
         <zxing:CameraBarcodeReaderView
             Grid.Row="0"
-            IsDetecting="True"
+            IsDetecting="True"       
             BarcodesDetected="Barcode"
             />
         <Label

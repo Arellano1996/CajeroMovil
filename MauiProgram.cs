@@ -1,4 +1,6 @@
-﻿using ZXing.Net.Maui;
+﻿using CajeroMovil.MVVM.ViewModels;
+using CajeroMovil.MVVM.Views;
+using ZXing.Net.Maui;
 
 namespace CajeroMovil;
 
@@ -16,6 +18,12 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
-		return builder.Build();
+		builder.Services.AddSingleton<ItemsListViewModel>();
+
+        builder.Services.AddSingleton<itemsList>();
+        builder.Services.AddTransient<QRScan>();
+
+
+        return builder.Build();
 	}
 }

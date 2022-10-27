@@ -12,7 +12,7 @@
                     <SwipeItem
                         BackgroundColor="DarkRed"
                         Command="{Binding Source={
-                        RelativeSource AncestorType={x:Type ViewModels:itemsListViewModel}},
+                        RelativeSource AncestorType={x:Type ViewModels:ItemsListViewModel}},
                         Path=DeleteCommand}"
                         CommandParameter="{Binding}"
                         IconImageSource="dotnet_bot"
