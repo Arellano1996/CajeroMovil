@@ -32,7 +32,8 @@
                 HeightRequest="60" 
                 Margin="10" 
                 Padding="0" 
-                Text="Enviar Mensaje" 
+                Text="Enviar Mensaje"
+                Command="{Binding ContactoLaunchWhatsAppCommand}"
                 />
             <StackLayout 
                 Grid.Column="0" 
