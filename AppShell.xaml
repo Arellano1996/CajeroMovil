@@ -10,7 +10,7 @@
 
     <ShellContent
         Title="Cajero Movil"
-        ContentTemplate="{DataTemplate local:Contacto}"
+        ContentTemplate="{DataTemplate local: LoginPage}"
         Route="MainPage" />
     
     
