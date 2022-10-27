@@ -1,6 +1,5 @@
 using CajeroMovil.MVVM.Models;
 using CajeroMovil.MVVM.ViewModels;
-using Org.Json;
 using System.Text.Json;
 using System.Windows.Input;
 using ZXing.Net.Maui;
@@ -17,6 +16,7 @@ public partial class QRScan : ContentPage
 
         hola = vm;
 	}
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Interoperability", "CA1416:Validar la compatibilidad de la plataforma", Justification = "<pendiente>")]
     private void Barcode(object sender, BarcodeDetectionEventArgs e)
     {
         Dispatcher.Dispatch( async() =>
