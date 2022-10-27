@@ -7,9 +7,12 @@
     Shell.FlyoutBehavior="Disabled"
     >
 
+
     <ShellContent
         Title="Cajero Movil"
-        ContentTemplate="{DataTemplate local:itemsList}"
+        ContentTemplate="{DataTemplate local:Contacto}"
         Route="MainPage" />
+    
+    
 
 </Shell>

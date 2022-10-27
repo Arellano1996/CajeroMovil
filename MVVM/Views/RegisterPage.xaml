@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CajeroMovil.View.RegisterPage"
+             xmlns:viewmodel="clr-namespace:CajeroMovil.ViewModel"
+             x:DataType="viewmodel:RegisterViewModel"
+             Title="RegisterPage">
+    <Grid Background="{StaticResource Primary}">
+
+        <!--
+                <Image Aspect="AspectFill" Source="" />
+        -->
+
+        <Grid RowDefinitions="80, * ,auto">
+
+            <StackLayout Grid.Row="1" VerticalOptions="Center">
+                <Image Source="https://img.icons8.com/color/240/000000/contacts.png" WidthRequest="100"/>
+                <Label Grid.Row="0" TextColor="{StaticResource White}" Text="Registrarse" Margin="10" FontSize="40" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <Label Grid.Row="0" TextColor="{StaticResource White}" Text="Crear una cuenta ahora"  Margin="10" FontSize="18" HorizontalOptions="Center"/>
+                <Frame Background="{StaticResource White}" BorderColor="Transparent" Opacity="0.70" Margin="20, 10, 20, 10" CornerRadius="10" Padding="0" >
+                    <StackLayout Padding="0, 10, 0 , 10">
+                        <Grid ColumnDefinitions="auto, *">
+                            <Image Grid.Column="0"  Source="https://img.icons8.com/fluency-systems-filled/96/000000/user.png" Margin="10" WidthRequest="30"/>
+                            <Entry  Grid.Column="1" Text="{Binding Email}"  Placeholder="Email" PlaceholderColor="{StaticResource Gray400}" HeightRequest="40" />
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+                <Frame Background="{StaticResource White}" BorderColor="Transparent" Opacity="0.70" Margin="20, 10, 20, 10" CornerRadius="10" Padding="0" >
+                    <StackLayout Padding="0, 10, 0 , 10">
+                        <Grid ColumnDefinitions="auto, *">
+                            <Image Grid.Column="0"  Source="https://img.icons8.com/material-rounded/96/000000/lock.png" Margin="10" WidthRequest="30"/>
+                            <Entry  Grid.Column="1" Text="{Binding Password}" Placeholder="Password" PlaceholderColor="{StaticResource Gray400}" IsPassword="True" HeightRequest="40" />
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <StackLayout Grid.Row="2" Background="{StaticResource White}" Padding="10">
+                <Grid ColumnDefinitions="*" HeightRequest="80" >
+                    <StackLayout Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Button Text="Registrarse" Command="{Binding RegisterUserCommand}" IsEnabled="{Binding IsNotBusy}" WidthRequest="170" HeightRequest="60" Background="transparent" TextColor="{StaticResource Primary}" BorderWidth="2" BorderColor="{StaticResource Primary}"/>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+            <ActivityIndicator  Grid.RowSpan="3" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"></ActivityIndicator>
+
+        </Grid>
+    </Grid>
+</ContentPage>
