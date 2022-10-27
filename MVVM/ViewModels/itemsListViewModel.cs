@@ -44,6 +44,11 @@ namespace CajeroMovil.MVVM.ViewModels
         async public void Alert() 
         {
             //Items.Add(new Item { id = 3, name = "Item agregado", price = 500, description = "hola", linkImg = "dotnet_bot.svg" });
+            if (Items.Count == 0)
+            {
+                App.Current.MainPage.DisplayAlert("Lista vacía", "Aún no has agregado ningún artículo.", "Ok");
+                return;
+            }
             await AppShell.Current.GoToAsync(nameof(Pagar));
 
         }

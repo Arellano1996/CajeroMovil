@@ -13,10 +13,14 @@
         Route="LoginPage" />
 
     <TabBar Route="MainMenu">
-        <Tab Title="Lista">
+        <Tab
+            Icon="carrito.png"
+            Title="Lista">
             <ShellContent ContentTemplate="{DataTemplate local:itemsList}" />
         </Tab>
-        <Tab Title="Contacto">
+        <Tab
+            Icon="contacto.png"
+            Title="Contacto">
             <ShellContent ContentTemplate="{DataTemplate local:Contacto}" />
         </Tab>
     </TabBar>
