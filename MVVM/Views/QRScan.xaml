@@ -5,17 +5,18 @@
              x:Class="CajeroMovil.MVVM.Views.QRScan"
              Title="QRScan">
     <Grid
-        RowDefinitions="*, Auto"
+        RowDefinitions="*"
         >
-
         <zxing:CameraBarcodeReaderView
             Grid.Row="0"
             IsDetecting="True"       
             BarcodesDetected="Barcode"
             />
+        <!-- 
         <Label
             Grid.Row="1"
             x:Name="barcodeResult"
             Text="Hola" />
+        -->
     </Grid>
 </ContentPage>

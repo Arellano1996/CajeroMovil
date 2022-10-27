@@ -4,7 +4,6 @@ using CajeroMovil.MVVM.Models;
 using CajeroMovil.MVVM.Views;
 using PropertyChanged;
 using System.Collections.ObjectModel;
-using System.Text.Json;
 using System.Windows.Input;
 
 namespace CajeroMovil.MVVM.ViewModels
@@ -19,7 +18,6 @@ namespace CajeroMovil.MVVM.ViewModels
         public ItemsListViewModel() 
         {
             Items = new ObservableCollection<Item>();
-
         }
 
         public ICommand ClickCommand =>

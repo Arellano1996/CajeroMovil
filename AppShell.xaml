@@ -7,9 +7,31 @@
     Shell.FlyoutBehavior="Disabled"
     >
 
+    <!-- 
+    
     <ShellContent
         Title="Cajero Movil"
         ContentTemplate="{DataTemplate local:itemsList}"
         Route="MainPage" />
+
+
+    </Shell>
+    
+    
+    -->
+
+
+
+    <TabBar>
+        <Tab Title="Lista">
+            <ShellContent ContentTemplate="{DataTemplate local:itemsList}" />
+        </Tab>
+        <Tab Title="Pagar">
+            <ShellContent ContentTemplate="{DataTemplate local:Pagar}" />
+        </Tab>
+        <Tab Title="Contacto">
+            <ShellContent ContentTemplate="{DataTemplate local:Contacto}" />
+        </Tab>
+    </TabBar>
 
 </Shell>

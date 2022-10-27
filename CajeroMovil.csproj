@@ -66,6 +66,9 @@
 	  <MauiXaml Update="MVVM\Views\itemsList.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="MVVM\Views\Pagar.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="MVVM\Views\QRScan.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

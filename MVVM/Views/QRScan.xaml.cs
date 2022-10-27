@@ -1,7 +1,6 @@
 using CajeroMovil.MVVM.Models;
 using CajeroMovil.MVVM.ViewModels;
 using System.Text.Json;
-using System.Windows.Input;
 using ZXing.Net.Maui;
 
 namespace CajeroMovil.MVVM.Views;
@@ -13,7 +12,6 @@ public partial class QRScan : ContentPage
 	public QRScan(ItemsListViewModel vm)
 	{
 		InitializeComponent();
-
         hola = vm;
 	}
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Interoperability", "CA1416:Validar la compatibilidad de la plataforma", Justification = "<pendiente>")]
@@ -21,17 +19,18 @@ public partial class QRScan : ContentPage
     {
         Dispatcher.Dispatch( async() =>
         {
-            barcodeResult.Text = $"{e.Results[0].Value} {e.Results[0].Format}";
-            //App.Current.MainPage.DisplayAlert("Titulo", $"{e.Results[0].Value} {e.Results[0].Format}", "Ok");
+            //barcodeResult.Text = $"{e.Results[0].Value} {e.Results[0].Format}";
             if (!isBusy) 
             {
-                
-                var v = JsonSerializer.Deserialize<Item>(e.Results[0].Value.ToString());
-                hola.AddItem(v);    
-                isBusy = true;
+                try
+                {
+                    var v = JsonSerializer.Deserialize<Item>(e.Results[0].Value.ToString());
+                    hola.AddItem(v);
+                    isBusy = true;
+                    await Navigation.PopAsync();
+                }
+                catch (Exception e) { }
             }
-            await Navigation.PopAsync();
         });
-       
     }
 }
