@@ -35,12 +35,10 @@ namespace CajeroMovil.MVVM.ViewModels
         public ICommand DeleteCommand =>
             new Command( (p) => 
             {
-                /*
                 if (Items.Count == 1)
                 {
                     Items = new ObservableCollection<Item>();
-                }else Items.Remove( (Item)p );*/
-                if (Items.Count > 0) Items.Remove((Item)p);
+                }else Items.Remove( (Item)p );
             });
         
         public void AddItem(Item i)
