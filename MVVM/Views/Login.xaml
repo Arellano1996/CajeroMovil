@@ -4,7 +4,7 @@
              x:Class="CajeroMovil.MVVM.Views.Login"
              xmlns:viewmodel="clr-namespace:CajeroMovil.MVVM.ViewModels"
              x:DataType="viewmodel:LoginViewModel"
-             Title="Login">
+             Title="Cajero Movil">
     <Grid Background="{StaticResource Primary}">
         <!--
                 <Image Aspect="AspectFill" Source="" />
