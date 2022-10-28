@@ -70,7 +70,7 @@
             Grid.Row="1"
             Margin="10"
             Text="Pagar"
-            Command="{Binding ClickCommand}"
+            Command="{Binding ToPayCommand}"
             />
     </Grid>
 </ContentPage>
