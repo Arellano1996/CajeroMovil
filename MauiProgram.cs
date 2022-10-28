@@ -1,5 +1,6 @@
 ﻿using CajeroMovil.MVVM.ViewModels;
 using CajeroMovil.MVVM.Views;
+using Microsoft.Extensions.DependencyInjection;
 using ZXing.Net.Maui;
 
 namespace CajeroMovil;
@@ -19,6 +20,8 @@ public static class MauiProgram
 			});
 
 		builder.Services.AddSingleton<ItemsListViewModel>();
+        builder.Services.AddTransient<PagarViewModel>();
+        builder.Services.AddTransient<QRScanViewModel>();
         builder.Services.AddTransient<ContactoViewModel>();
 
         builder.Services.AddSingleton<itemsList>();

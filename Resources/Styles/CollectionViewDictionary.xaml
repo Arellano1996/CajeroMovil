@@ -16,13 +16,11 @@
                         Path=DeleteCommand}"
                         CommandParameter="{Binding}"
                         IconImageSource="dotnet_bot"
-                        Text="Borrar"
                         />
                 </SwipeItems>
             </SwipeView.RightItems>
             <Grid
                 ColumnDefinitions=".25*, .75*"
-                RowDefinitions="Auto"
                 >
                 <Frame
                     Grid.ColumnSpan="2"
@@ -35,6 +33,7 @@
                         </LinearGradientBrush>
                     </Frame.Background>
                 </Frame>
+                
                 <Image
                     HeightRequest="100"
                     Source="{Binding linkImg}"

@@ -7,12 +7,11 @@
              Title="Pagar">
     <VerticalStackLayout VerticalOptions="Center">
         <zxing:BarcodeGeneratorView
-            x:Name="BarCodeGen"
             Format="QrCode"
             ForegroundColor="{StaticResource Gray600}"
             HeightRequest="300"
             WidthRequest="300"
-            Value="{Binding h}"
+            Value="{Binding itemsString}"
             />
         <Label 
             Text="Gracias por su compra"
@@ -22,7 +21,7 @@
             HorizontalOptions="Center"
             />
         <Label 
-            Text="{Binding p, StringFormat='Total {0:C}'}"
+            Text="{Binding precioTotal, StringFormat='Total {0:C}'}"
             FontSize="Large"
             HorizontalOptions="Center"
             TextColor="#545454"
