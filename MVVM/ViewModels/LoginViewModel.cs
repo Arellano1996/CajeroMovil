@@ -19,7 +19,8 @@ namespace CajeroMovil.MVVM.ViewModels
 
         public LoginViewModel()
         {
-
+            userEmail = Preferences.Default.Get("email", "");
+            userPassword = Preferences.Default.Get("password", "");
         }
 
         [RelayCommand]
@@ -29,7 +30,7 @@ namespace CajeroMovil.MVVM.ViewModels
         }
 
         [RelayCommand]
-        async Task LoginUserAsync(object obj)
+        async Task LoginUserAsync()
         {
 
             if (IsBusy)
@@ -40,9 +41,16 @@ namespace CajeroMovil.MVVM.ViewModels
                 IsBusy = true;
                 var authProvider = new FirebaseAuthProvider(new FirebaseConfig(webApiKey));
                 var auth = await authProvider.SignInWithEmailAndPasswordAsync(UserEmail, UserPassword);
+
                 var content = await auth.GetFreshAuthAsync();
-                var serializedContent = JsonConvert.SerializeObject(content);
-                Preferences.Set("FreshFirebaseToken", serializedContent);
+                var serializedContent = JsonConvert.SerializeObject(content.User.Email);
+                var found = serializedContent.IndexOf("@");
+                var userGenerated = serializedContent.Substring(1, found - 1);
+
+                Preferences.Default.Set("UserName", userGenerated);
+                Preferences.Default.Set("email", userEmail);
+                Preferences.Default.Set("password", userPassword);
+
                 await Shell.Current.GoToAsync("////MainMenu", true);
             }
             catch (Exception ex)
