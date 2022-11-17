@@ -5,20 +5,30 @@
              
              x:Class="CajeroMovil.MVVM.Views.Pagar"
              Title="Pagar">
-    <VerticalStackLayout>
+    <VerticalStackLayout VerticalOptions="Center">
         <zxing:BarcodeGeneratorView
-            x:Name="BarCodeGen"
             Format="QrCode"
-            ForegroundColor="{StaticResource Primary}"
-            HeightRequest="200"
-            WidthRequest="200"
-            Value="{Binding h}"
+            ForegroundColor="{StaticResource Gray600}"
+            HeightRequest="300"
+            WidthRequest="300"
+            Value="{Binding itemsString}"
             />
         <Label 
             Text="Gracias por su compra"
             FontAttributes="Bold"
             FontSize="Large"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            TextColor="{StaticResource Tertiary}"
+            HorizontalOptions="Center"
+            />
+        <Label 
+            Text="{Binding precioTotal, StringFormat='Total {0:C}'}"
+            FontSize="Large"
+            HorizontalOptions="Center"
+            TextColor="#545454"
+            />
+        <Button
+            Text="Aceptar"
+            Command="{Binding btnAceptarCommand}"
+            />
     </VerticalStackLayout>
 </ContentPage>
