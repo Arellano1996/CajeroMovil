@@ -81,7 +81,7 @@ namespace CajeroMovil.MVVM.ViewModels
             listaarticulos.Add(new listaArticulos(aux, total, listaAuxiliar));
         }
 
-        public
+        
         
 
 
