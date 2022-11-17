@@ -11,12 +11,12 @@ namespace CajeroMovil.MVVM.ViewModels
     {
         public ObservableCollection<Item> Items { get; set; }
         //Constructor
-        public ItemsListViewModel() 
+        public ItemsListViewModel()
         {
             Items = new ObservableCollection<Item>();
         }
-        public ICommand ToPayCommand => 
-            new Command( async()=>
+        public ICommand ToPayCommand =>
+            new Command(async () =>
         {
             //Items.Add(new Item { id = 3, name = "Item agregado", price = 500, description = "hola", linkImg = "dotnet_bot.svg" });
 
@@ -33,14 +33,15 @@ namespace CajeroMovil.MVVM.ViewModels
                 await AppShell.Current.GoToAsync(nameof(QRScan));
             });
         public ICommand DeleteCommand =>
-            new Command( (p) => 
+            new Command((p) =>
             {
                 if (Items.Count == 1)
                 {
                     Items = new ObservableCollection<Item>();
-                }else Items.Remove( (Item)p );
+                }
+                else Items.Remove((Item)p);
             });
-        
+
         public void AddItem(Item i)
         {
             Items.Add(i);

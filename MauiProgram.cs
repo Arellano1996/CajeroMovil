@@ -20,20 +20,20 @@ public static class MauiProgram
 			});
 
 		builder.Services.AddSingleton<ItemsListViewModel>();
-        builder.Services.AddTransient<PagarViewModel>();
-        builder.Services.AddTransient<QRScanViewModel>();
-        builder.Services.AddTransient<ContactoViewModel>();
-        builder.Services.AddTransient<PagarViewModel>();
+		builder.Services.AddTransient<PagarViewModel>();
+		builder.Services.AddTransient<QRScanViewModel>();
+		builder.Services.AddTransient<ContactoViewModel>();
+		builder.Services.AddTransient<PagarViewModel>();
 
-        builder.Services.AddSingleton<itemsList>();
-        builder.Services.AddTransient<QRScan>();
-        builder.Services.AddTransient<Contacto>();
-        builder.Services.AddTransient<Pagar>();
+		builder.Services.AddSingleton<itemsList>();
+		builder.Services.AddTransient<QRScan>();
+		builder.Services.AddTransient<Contacto>();
+		builder.Services.AddTransient<Pagar>();
 
 		builder.Services.AddSingleton<customRepository>();
 		builder.Services.AddTransient<historial>();
 		builder.Services.AddSingleton<historialViewModel>();
 
-        return builder.Build();
+		return builder.Build();
 	}
 }

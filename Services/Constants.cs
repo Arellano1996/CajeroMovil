@@ -13,7 +13,6 @@ namespace CajeroMovil.Services
 
         public static string DatabasePath
         {
-
             get
             {
                 return Path.Combine(FileSystem.AppDataDirectory, DBFileName);

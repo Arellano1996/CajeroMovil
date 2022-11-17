@@ -16,7 +16,7 @@ namespace CajeroMovil.MVVM.ViewModels
 
         async public void QRDetected(string result)
         {
-            if (!isBusy) 
+            if (!isBusy)
             {
                 try
                 {

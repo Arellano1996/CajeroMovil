@@ -5,9 +5,10 @@ namespace CajeroMovil.MVVM.Views;
 
 public partial class itemsList : ContentPage
 {
-	public itemsList(ItemsListViewModel vm)
-	{
-		InitializeComponent();
+    public itemsList(ItemsListViewModel vm)
+    {
+        InitializeComponent();
+
         BindingContext = vm;
-	}
+    }
 }

@@ -3,9 +3,9 @@ namespace CajeroMovil.MVVM.Views;
 
 public partial class Register : ContentPage
 {
-	public Register()
-	{
-		InitializeComponent();
-		BindingContext = new RegisterViewModel();
-	}
+    public Register()
+    {
+        InitializeComponent();
+        BindingContext = new RegisterViewModel();
+    }
 }

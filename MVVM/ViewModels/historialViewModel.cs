@@ -2,7 +2,6 @@
 using CajeroMovil.MVVM.Models;
 using PropertyChanged;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
 
 namespace CajeroMovil.MVVM.ViewModels
 {
@@ -16,7 +15,6 @@ namespace CajeroMovil.MVVM.ViewModels
         public List<articuloBaseDatos> listaAuxiliar { get; set; }
         //Una vez separados en grupo se agregaran a esta lista que servira como para el binding
         public ObservableCollection<listaArticulos> listaarticulos { get; set; }
-        public ICommand btnAgregarCommand { get; set; }
         public historialViewModel()
         {
             //Actializa nuestra variable listaarticulos para poder hacer binding de los datos
@@ -35,6 +33,7 @@ namespace CajeroMovil.MVVM.ViewModels
             //Separamos en grupos los datos de articulos y los pondremos en listaarticulos que ya contiene
             //todos los datos pero ordenados en grupos
             formatearLista();
+            Console.WriteLine("-------Proceso terminado");
         }
         public void formatearLista()
         {
@@ -53,7 +52,7 @@ namespace CajeroMovil.MVVM.ViewModels
                 //por lo tanto mismo grupo es falso
                 if (a.fecha != aux) mismoGrupo = false;
                 //Si el el item es del mismo grupo sigue agregando al grupo actual
-                if (mismoGrupo) listaAuxiliar.Add(a); 
+                if (mismoGrupo) listaAuxiliar.Add(a);
                 else
                 {
                     float Total = 0;
@@ -81,8 +80,8 @@ namespace CajeroMovil.MVVM.ViewModels
             listaarticulos.Add(new listaArticulos(aux, total, listaAuxiliar));
         }
 
-        
-        
+
+
 
 
     }

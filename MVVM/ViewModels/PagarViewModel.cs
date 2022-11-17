@@ -1,11 +1,7 @@
 ﻿using CajeroMovil.MVVM.Models;
-using CajeroMovil.MVVM.Views;
-using Microsoft.Maui;
-using PropertyChanged;
 using System.Collections.ObjectModel;
 using System.Text.Json;
 using System.Windows.Input;
-using static Android.Content.ClipData;
 using Item = CajeroMovil.MVVM.Models.Item;
 
 namespace CajeroMovil.MVVM.ViewModels
@@ -30,11 +26,9 @@ namespace CajeroMovil.MVVM.ViewModels
         //Al mismo tiempo está sumando el total a pagar por los items
         public void GetItems(ObservableCollection<Item> Items)
         {
-            List<Item> items = new List<Item>();
             foreach (var item in Items)
             {
                 items.Add(item);
-                //agregarDatoASql(item, fecha);
                 precioTotal += item.price;
             }
             itemsString = JsonSerializer.Serialize(items);
@@ -43,7 +37,6 @@ namespace CajeroMovil.MVVM.ViewModels
         public void agregarDatoASql()
         {
             DateTime fecha = DateTime.Now;
-
             foreach (var item in items)
             {
                 App.cr.AddorUpdate(new articuloBaseDatos
