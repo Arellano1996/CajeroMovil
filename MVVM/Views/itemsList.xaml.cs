@@ -8,7 +8,6 @@ public partial class itemsList : ContentPage
 	public itemsList(ItemsListViewModel vm)
 	{
 		InitializeComponent();
-
         BindingContext = vm;
 	}
 }

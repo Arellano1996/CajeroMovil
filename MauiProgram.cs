@@ -20,6 +20,8 @@ public static class MauiProgram
 			});
 
 		builder.Services.AddSingleton<ItemsListViewModel>();
+        builder.Services.AddTransient<PagarViewModel>();
+        builder.Services.AddTransient<QRScanViewModel>();
         builder.Services.AddTransient<ContactoViewModel>();
         builder.Services.AddTransient<PagarViewModel>();
 

@@ -30,6 +30,7 @@ namespace CajeroMovil.MVVM.ViewModels
         //Al mismo tiempo está sumando el total a pagar por los items
         public void GetItems(ObservableCollection<Item> Items)
         {
+            List<Item> items = new List<Item>();
             foreach (var item in Items)
             {
                 items.Add(item);
