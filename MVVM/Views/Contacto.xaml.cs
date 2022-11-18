@@ -4,9 +4,9 @@ namespace CajeroMovil.MVVM.Views;
 
 public partial class Contacto : ContentPage
 {
-    public Contacto(ContactoViewModel vm)
+    public Contacto()
     {
         InitializeComponent();
-        BindingContext = vm;
+        BindingContext = new ContactoViewModel();
     }
 }

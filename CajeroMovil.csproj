@@ -52,6 +52,7 @@
 	  <None Remove="Resources\Images\carrito.png" />
 	  <None Remove="Resources\Images\codigo_qr.png" />
 	  <None Remove="Resources\Images\contacto.png" />
+	  <None Remove="Resources\Images\programador.png" />
 	  <None Remove="Resources\Images\shoppingbag.png" />
 	</ItemGroup>
 
