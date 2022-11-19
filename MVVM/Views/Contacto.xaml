@@ -5,22 +5,42 @@
              xmlns:viewmodel="clr-namespace:CajeroMovil.MVVM.ViewModels"
              x:DataType="viewmodel:ContactoViewModel"
              Title="Contacto">
-    <Grid RowDefinitions="*, 50, auto, *, auto" Margin="10">
-        <Image Grid.Row="0" WidthRequest="150" HeightRequest="150" Source="programador.png"/>
-        <Label  Grid.Row="1" Text="Contacta al desarrollador"  FontSize="25"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-        <Frame Grid.Row="2" Background="{StaticResource White}" BorderColor="{StaticResource Primary}" Opacity="0.70" Margin="5, 10, 5, 10" CornerRadius="10" Padding="0" >
-            <StackLayout Padding="0, 10, 0 , 10">
-                <Grid ColumnDefinitions="auto, *">
-                    <Image Grid.Column="0"  Source="https://img.icons8.com/ios-glyphs/90/null/align-right.png" Margin="10" WidthRequest="20"/>
-                    <Entry Grid.Column="1" Text="{Binding Subject}" FontSize="16" Margin="0,0,10,0" Placeholder="Asunto" PlaceholderColor="{StaticResource Gray400}" HeightRequest="40" x:Name="EntrySubject" VerticalOptions="Center" ClearButtonVisibility="WhileEditing" Keyboard="Text"/>
-                </Grid>
+    <ScrollView>
+        <Grid RowDefinitions="auto, auto">
+            <StackLayout Grid.Row="0" VerticalOptions="Start" Grid.RowSpan="2"  Background="{StaticResource Secondary}" Margin="0" HeightRequest="200" >
             </StackLayout>
-        </Frame>
-        <Frame Grid.Row="3" Background="{StaticResource White}" BorderColor="{StaticResource Primary}" Opacity="0.70" Margin="5, 10, 5, 10" CornerRadius="10" Padding="10, 0, 0, 0" >
-            <StackLayout Padding="0, 10, 0 , 10">
-                <Editor Grid.Column="1" FontSize="16" MaxLength="255" Text="{Binding Body}" Placeholder="Mensaje" PlaceholderColor="{StaticResource Gray400}" HeightRequest="100" />
+            <StackLayout Grid.Row="1"  Margin="30, 60, 30, 0" >
+                <Frame Background="{StaticResource Primary}" BorderColor="Transparent">
+                    <Grid RowDefinitions="auto, 80, auto, auto, auto">
+                        <Image Grid.Row="0" Source="https://img.icons8.com/color/96/null/working-with-a-laptop.png" WidthRequest="90"/>
+                        <VerticalStackLayout Grid.Row="1" VerticalOptions="Center">
+                            <Label  Text="Contacta al desarrollador" FontSize="24" FontAttributes="Bold" TextColor="{StaticResource White}" VerticalTextAlignment="End" HorizontalTextAlignment="Center"/>
+                            <Label  Text="Normalmente responde nunca" FontSize="14" TextColor="{StaticResource White}" VerticalTextAlignment="Start" HorizontalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+
+                        <Frame Grid.Row="2" Background="{StaticResource White}" BorderColor="{StaticResource Primary}" Opacity="0.70" Margin="10, 10, 10, 10" CornerRadius="10" Padding="10, 0, 0, 0">
+                            <StackLayout Padding="0, 10, 0 , 10">
+                                <Entry Grid.Column="1" Text="{Binding Subject}" FontSize="16" Margin="0,0,10,0" Placeholder="Asunto" PlaceholderColor="{StaticResource Gray400}" x:Name="EntrySubject" VerticalOptions="Center" ClearButtonVisibility="WhileEditing" Keyboard="Text"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Grid.Row="3" Background="{StaticResource White}" BorderColor="{StaticResource Primary}" Opacity="0.70" Margin="10, 10, 10, 10" CornerRadius="10" Padding="10, 0, 10, 0" HeightRequest="200" VerticalOptions="Start">
+                            <StackLayout Padding="0, 10, 0 , 10">
+                                <Editor Grid.Column="1" FontSize="16" MaxLength="255" Text="{Binding Body}" Placeholder="Mensaje" PlaceholderColor="{StaticResource Gray400}" AutoSize="TextChanges" MinimumHeightRequest="200"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Button Grid.Row="4" Text="Enviar" Margin="10, 10, 10, 10" Command="{Binding Button_ClickedCommand}" HeightRequest="60" BackgroundColor="{StaticResource Secondary}"/>
+
+                    </Grid>
+                </Frame>
+                <StackLayout.Shadow>
+                    <Shadow Brush="{StaticResource Black}"
+                   Offset="0,10"
+                   Radius="60"
+                   Opacity="0.4"/>
+                </StackLayout.Shadow>
             </StackLayout>
-        </Frame>
-        <Button Grid.Row="4" Text="Enviar" Margin="5, 10, 5, 10" Command="{Binding Button_ClickedCommand}" HeightRequest="60" BackgroundColor="{StaticResource Primary}"/>
-    </Grid>
+        </Grid>
+    </ScrollView>
 </ContentPage>

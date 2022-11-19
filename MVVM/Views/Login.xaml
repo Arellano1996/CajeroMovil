@@ -9,7 +9,7 @@
         <!--
                 <Image Aspect="AspectFill" Source="" />
         -->
-        <Grid RowDefinitions="80, * ,auto">
+        <Grid RowDefinitions="auto, * ,auto">
 
             <StackLayout Grid.Row="1" VerticalOptions="Center">
                 <Image Source="https://img.icons8.com/fluency/240/000000/gmail.png" WidthRequest="100"/>
@@ -46,7 +46,7 @@
                     </StackLayout>
                 </Grid>
             </StackLayout>
-            <ActivityIndicator  Grid.RowSpan="3" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"></ActivityIndicator>
+            <ActivityIndicator Color="{StaticResource Primary}" BackgroundColor="Transparent" Grid.RowSpan="3" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"></ActivityIndicator>
         </Grid>
     </Grid>
 </ContentPage>

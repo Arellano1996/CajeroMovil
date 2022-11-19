@@ -71,6 +71,10 @@ namespace CajeroMovil.MVVM.ViewModels
                 {
                     await App.Current.MainPage.DisplayAlert("Alerta", "La contraseña es incorrecta", "OK");
                 }
+                else if (ex.Message.Contains("TOO_MANY_ATTEMPTS_TRY_LATER"))
+                {
+                    await App.Current.MainPage.DisplayAlert("Alerta", "Demasiados intentos fallidos, intente más tarde", "De acuerdo");
+                }
                 else
                 {
                     await App.Current.MainPage.DisplayAlert("Alerta", ex.Message, "OK");

@@ -8,10 +8,10 @@ namespace CajeroMovil.MVVM.ViewModels
     public partial class ContactoViewModel : ObservableObject
     {
         [ObservableProperty]
-        string subject;
+        string subject = "";
 
         [ObservableProperty]
-        string body;
+        string body = "";
 
         List<string> recipients = new List<string>();
 
@@ -43,8 +43,19 @@ namespace CajeroMovil.MVVM.ViewModels
         [RelayCommand]
         async void Button_Clicked()
         {
-            recipients.Add("l18480876@nuevoleon.tecnm.mx");
-            await SendEmail(subject, body, recipients);
+            if (subject.Equals(""))
+            {
+                await App.Current.MainPage.DisplayAlert("Aviso", "Escribe un asunto", "ok");
+            } else if (body.Equals("")) 
+            {
+                await App.Current.MainPage.DisplayAlert("Aviso", "Escribe un mensaje", "ok");
+            }
+            else
+            {
+                recipients.Add("l18480876@nuevoleon.tecnm.mx");
+                await SendEmail(subject, body, recipients);
+            }
+                        
         }
     }
 }
