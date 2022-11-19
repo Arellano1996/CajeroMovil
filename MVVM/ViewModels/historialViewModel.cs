@@ -2,6 +2,7 @@
 using CajeroMovil.MVVM.Models;
 using PropertyChanged;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace CajeroMovil.MVVM.ViewModels
 {
@@ -15,11 +16,16 @@ namespace CajeroMovil.MVVM.ViewModels
         public List<articuloBaseDatos> listaAuxiliar { get; set; }
         //Una vez separados en grupo se agregaran a esta lista que servira como para el binding
         public ObservableCollection<listaArticulos> listaarticulos { get; set; }
+        public ICommand DeleteCommand { get; set; }
         public historialViewModel()
         {
             //Actializa nuestra variable listaarticulos para poder hacer binding de los datos
             //y pintar la información
             Refresh();
+            DeleteCommand = new Command((c) =>
+            {
+                borrar((listaArticulos)c);
+            });
         }
 
         public void Refresh()
@@ -33,7 +39,7 @@ namespace CajeroMovil.MVVM.ViewModels
             //Separamos en grupos los datos de articulos y los pondremos en listaarticulos que ya contiene
             //todos los datos pero ordenados en grupos
             formatearLista();
-            Console.WriteLine("-------Proceso terminado");
+            //Console.WriteLine("-------Proceso terminado");
         }
         public void formatearLista()
         {
@@ -80,7 +86,25 @@ namespace CajeroMovil.MVVM.ViewModels
             listaarticulos.Add(new listaArticulos(aux, total, listaAuxiliar));
         }
 
+        private void borrar(listaArticulos la)
+        {
+            //Para eliminar los articulos de la base de datos hay que tomar los objetos de tipo articulosBaseDatos que estan en nuestra
+            //variable listaarticulos, nuestra variable listaarticulos es una clase que nos ayuda a visualizar los elementos de nuestra
+            //base de datos, pero esta clase no es lo que almacenamos en SQL, lo que almacenamos en SQL son objetos de la clase articulBaseDatos
+            
+            //Aquí recorremos la lista de articuloBaseDatos que está en nuestra variable listaarticulos y eliminamos mediante el id los elementos
+            //llamamos al método Delete que está en nuestra clase customRepository
+            foreach (var item in la)
+            {
+                //Console.WriteLine(item.id);
+                App.cr.Delete(item.id);
+                
+            }
+            //Una vez que eliminamos los items volvemos a generar nuestra listaarticulos, el método formatearLista volverá a cargar los datos de la SQL
+            //logicamente no estaran los elementos recién borrados
+            Refresh();
 
+        }
 
 
 
