@@ -11,6 +11,5 @@ namespace CajeroMovil.MVVM.Models
             Fecha = fecha;
             Total = total;
         }
-
     }
 }
